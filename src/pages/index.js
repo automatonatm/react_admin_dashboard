@@ -1,0 +1,5 @@
+export {default as Home} from 'pages/home/Home'
+export {default as List} from 'pages/list/List'
+export {default as Login} from 'pages/login/Login'
+export {default as New} from 'pages/new/New'
+export {default as Single} from 'pages/single/Single'

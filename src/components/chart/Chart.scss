@@ -1,0 +1,19 @@
+.chart {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--box-shadow-primary);
+  padding: 2rem;
+  color: var(--color-gray);
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    stroke: rgb(228, 225, 225);
+  }
+
+
+}
+

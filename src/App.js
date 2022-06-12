@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useContext, useState} from "react";
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
+import './App.scss';
+import "./style/dark.scss"
+import {Home, List, Login, New, Single} from "pages";
+import {productInputs, userInputs} from "data/fornSource";
+import {DarkModeContext} from "./context/darkModeContext";
+
 
 function App() {
+    const [dark, setDark] = useState(false)
+
+    const  {darkMode} = useContext(DarkModeContext)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? 'app dark' : 'app'}>
+    <Routes>
+        <Route path="/" >
+            <Route index element={<Home/>} />
+            <Route path="login" element={<Login/>} />x
+
+            <Route path="users">
+                <Route index element={<List/>} />
+                <Route path=":userId" element={<Single/>} />
+                <Route path="new" element={<New inputs={userInputs}/>} />
+            </Route>
+
+
+            <Route path="products">
+                <Route index element={<List/>} />
+                <Route path=":productId" element={<Single/>} />
+                <Route path="new" element={<New inputs={productInputs}/>} />
+            </Route>
+
+
+        </Route>
+    </Routes>
     </div>
   );
 }
